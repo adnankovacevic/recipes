@@ -1,0 +1,51 @@
+name: recipes
+description: "Recipes App"
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  flutter_bloc: ^8.1.6
+  cached_network_image: ^3.4.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/fonts/
+
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins/Poppins-Regular-300.otf
+          weight: 300
+        - asset: assets/fonts/Poppins/Poppins-Regular-400.otf
+          weight: 400
+        - asset: assets/fonts/Poppins/Poppins-Regular-500.otf
+          weight: 500
+        - asset: assets/fonts/Poppins/Poppins-Regular-600.otf
+          weight: 600
+        - asset: assets/fonts/Poppins/Poppins-Regular-700.otf
+          weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/to/font-from-package
