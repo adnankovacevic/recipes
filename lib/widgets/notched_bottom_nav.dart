@@ -5,13 +5,11 @@ class NotchedBottomNavBar extends StatelessWidget {
   const NotchedBottomNavBar({
     super.key,
     required this.iconPaths,
-    required this.notchedIconPath,
     required this.currentIndex,
     required this.onIndexChange,
   });
 
   final List<IconData> iconPaths;
-  final IconData notchedIconPath;
   final int currentIndex;
   final ValueChanged<int> onIndexChange;
 

@@ -42,7 +42,6 @@ class _RootViewState extends State<RootView> {
           Icons.bookmark,
           Icons.person,
         ],
-        notchedIconPath: Icons.add,
         currentIndex: currentIndex,
         onIndexChange: onIndexChange,
       ),
