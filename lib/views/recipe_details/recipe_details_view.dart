@@ -1,14 +1,23 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recipes/models/recipe.dart';
 import 'package:recipes/themes/color_palettes.dart';
 import 'package:recipes/themes/text_theme_extensions.dart';
 
-class RecipeDetailsView extends StatelessWidget {
+class RecipeDetailsView extends StatefulWidget {
   const RecipeDetailsView({super.key, required this.recipe});
   final Recipe recipe;
 
+  @override
+  State<RecipeDetailsView> createState() => _RecipeDetailsViewState();
+}
+
+class _RecipeDetailsViewState extends State<RecipeDetailsView> {
+  final CarouselController carouselController = CarouselController();
+  int currentImage = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,9 +41,47 @@ class RecipeDetailsView extends StatelessWidget {
             ],
             expandedHeight: MediaQuery.of(context).size.height * 0.5,
             flexibleSpace: FlexibleSpaceBar(
-              background: CachedNetworkImage(
-                imageUrl: recipe.images.first,
-                fit: BoxFit.cover,
+              background: Stack(
+                children: [
+                  CarouselSlider.builder(
+                    itemCount: widget.recipe.images.length,
+                    itemBuilder: (context, index, realIndex) =>
+                        CachedNetworkImage(
+                      imageUrl: widget.recipe.images[index],
+                      fit: BoxFit.cover,
+                      height: double.infinity,
+                      width: double.infinity,
+                    ),
+                    options: CarouselOptions(
+                      autoPlay: true,
+                      autoPlayInterval: Duration(seconds: 5),
+                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enlargeFactor: 0,
+                      height: MediaQuery.of(context).size.height * 0.9,
+                      viewportFraction: 1,
+                      onPageChanged: (index, reason) {
+                        debugPrint('Page changed: $index');
+                        setState(() {
+                          currentImage = index;
+                        });
+                      },
+                    ),
+                  ),
+                  Positioned(
+                    top: MediaQuery.of(context).size.height * 0.5,
+                    right: 0,
+                    left: 0,
+                    child: DotsIndicator(
+                      dotsCount: widget.recipe.images.length,
+                      position: currentImage,
+                      decorator: DotsDecorator(
+                        color: Colors.white,
+                        activeColor: ColorPalettes.primary,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             pinned: true,
@@ -65,11 +112,11 @@ class RecipeDetailsView extends StatelessWidget {
                   children: [
                     ListTile(
                       title: Text(
-                        recipe.name,
+                        widget.recipe.name,
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       subtitle: Text(
-                        "By ${recipe.author}",
+                        "By ${widget.recipe.author}",
                         style: Theme.of(context)
                             .textTheme
                             .bodySmall
@@ -84,7 +131,7 @@ class RecipeDetailsView extends StatelessWidget {
                           ),
                           const SizedBox(width: 4),
                           Text(
-                            recipe.rating.toString(),
+                            widget.recipe.rating.toString(),
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                         ],
@@ -94,7 +141,7 @@ class RecipeDetailsView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         InfoRow(
-                          text: "${recipe.duration} min",
+                          text: "${widget.recipe.duration} min",
                           icon: CupertinoIcons.timer,
                         ),
                         InfoRow(
@@ -102,7 +149,7 @@ class RecipeDetailsView extends StatelessWidget {
                           icon: CupertinoIcons.chart_bar_square,
                         ),
                         InfoRow(
-                          text: "${recipe.kcal} kcal",
+                          text: "${widget.recipe.kcal} kcal",
                           icon: CupertinoIcons.flame,
                         ),
                       ],
@@ -111,7 +158,7 @@ class RecipeDetailsView extends StatelessWidget {
                       "Ingredients",
                       style: Theme.of(context).textTheme.titleSmall,
                     ),
-                    for (var ingredient in recipe.ingredients)
+                    for (var ingredient in widget.recipe.ingredients)
                       ListTile(
                         title: Text(
                           ingredient.name,

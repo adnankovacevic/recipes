@@ -52,7 +52,8 @@ List<Recipe> recommendedRecipes = [
     name: 'Chicken Tikka Masala',
     author: 'Lucy Brown',
     images: [
-      'https://www.recipetineats.com/tachyon/2018/04/Chicken-Tikka-Masala_0-SQ.jpg'
+      'https://www.recipetineats.com/tachyon/2018/04/Chicken-Tikka-Masala_0-SQ.jpg',
+      'https://the-kitchencoalition.com/wp-content/uploads/2023/06/8-20230104_155910.jpg.webp'
     ],
     rating: 4.8,
     duration: 40,
