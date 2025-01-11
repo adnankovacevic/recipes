@@ -1,17 +1,17 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recipes/views/add_recipe/add_recipe_view.dart';
 import 'package:recipes/views/bookmarks/bookmarks_view.dart';
 import 'package:recipes/views/home/home_view.dart';
-import 'package:recipes/views/profile/profile_view.dart';
+import 'package:recipes/views/account/account_view.dart';
 import 'package:recipes/views/search/search_view.dart';
 import 'package:recipes/widgets/notched_bottom_nav.dart';
 
 final List<Widget> views = [
   HomeView(),
   SearchView(),
-  AddRecipeView(),
+  // AddRecipeView(),
   BookmarksView(),
-  ProfileView(),
+  AccountView(),
 ];
 
 class RootView extends StatefulWidget {
@@ -37,10 +37,10 @@ class _RootViewState extends State<RootView> {
       body: views[currentIndex],
       bottomNavigationBar: NotchedBottomNavBar(
         iconPaths: [
-          Icons.home,
-          Icons.search,
-          Icons.bookmark,
-          Icons.person,
+          CupertinoIcons.home,
+          CupertinoIcons.search,
+          CupertinoIcons.bookmark,
+          CupertinoIcons.person,
         ],
         currentIndex: currentIndex,
         onIndexChange: onIndexChange,
@@ -49,7 +49,7 @@ class _RootViewState extends State<RootView> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         shape: const CircleBorder(),
-        child: Icon(Icons.add),
+        child: Icon(CupertinoIcons.add),
       ),
     );
   }

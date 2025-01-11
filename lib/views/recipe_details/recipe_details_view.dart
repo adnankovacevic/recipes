@@ -12,6 +12,7 @@ class RecipeDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -36,58 +37,96 @@ class RecipeDetailsView extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            pinned: false,
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ListTile(
-                    title:
-                        Text(recipe.name, style: context.textTheme.titleMedium),
-                    subtitle: Text("By ${recipe.author}",
-                        style: context.textTheme.bodySmall?.transparent),
-                    trailing: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      spacing: 5,
-                      children: [
-                        Icon(CupertinoIcons.star_fill,
-                            color: ColorPalettes.yellow),
-                        Text(recipe.rating.toString(),
-                            style: context.textTheme.bodySmall?.transparent),
-                      ],
-                    ),
+            pinned: true,
+            floating: true,
+            bottom: PreferredSize(
+              preferredSize: Size.fromHeight(50),
+              child: Container(
+                width: double.maxFinite,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(40),
+                    topRight: Radius.circular(40),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      InfoRow(
-                          text: recipe.duration.toString(),
-                          icon: CupertinoIcons.timer),
-                      InfoRow(
-                          text: "Medium",
-                          icon: CupertinoIcons.chart_bar_square),
-                      InfoRow(
-                          text: "${recipe.kcal} kcal",
-                          icon: CupertinoIcons.flame),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  Text("Ingredients", style: context.textTheme.titleSmall),
-                  for (var ingredient in recipe.ingredients)
-                    ListTile(
-                      title: Text(ingredient.name,
-                          style: context.textTheme.bodySmall),
-                      trailing: Text(
-                          "${ingredient.quantity} ${ingredient.unit.abbreviation}",
-                          style: context.textTheme.bodySmall),
-                    ),
-                ],
+                ),
               ),
             ),
           ),
+          SliverToBoxAdapter(
+            child: Container(
+              color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  spacing: 16,
+                  children: [
+                    ListTile(
+                      title: Text(
+                        recipe.name,
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                      subtitle: Text(
+                        "By ${recipe.author}",
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodySmall
+                            ?.copyWith(color: Colors.grey),
+                      ),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Icon(
+                            CupertinoIcons.star_fill,
+                            color: Colors.amber,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            recipe.rating.toString(),
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        InfoRow(
+                          text: "${recipe.duration} min",
+                          icon: CupertinoIcons.timer,
+                        ),
+                        InfoRow(
+                          text: "Medium",
+                          icon: CupertinoIcons.chart_bar_square,
+                        ),
+                        InfoRow(
+                          text: "${recipe.kcal} kcal",
+                          icon: CupertinoIcons.flame,
+                        ),
+                      ],
+                    ),
+                    Text(
+                      "Ingredients",
+                      style: Theme.of(context).textTheme.titleSmall,
+                    ),
+                    for (var ingredient in recipe.ingredients)
+                      ListTile(
+                        title: Text(
+                          ingredient.name,
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                        trailing: Text(
+                          "${ingredient.quantity} ${ingredient.unit.abbreviation}",
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );

@@ -28,6 +28,7 @@ extension TextThemeExtension on BuildContext {
 extension AppFontSizes on TextStyle {
   TextStyle get s10 => copyWith(inherit: true, fontSize: 10);
   TextStyle get s12 => copyWith(inherit: true, fontSize: 12);
+  TextStyle get s14 => copyWith(inherit: true, fontSize: 14);
   TextStyle get s16 => copyWith(inherit: true, fontSize: 16);
   TextStyle get s20 => copyWith(inherit: true, fontSize: 20);
   TextStyle get s24 => copyWith(inherit: true, fontSize: 24);
@@ -68,6 +69,8 @@ extension AppFontColor on TextStyle {
 
 extension AppFontHeight on TextStyle {
   TextStyle get height100 => copyWith(inherit: true, height: 1.0);
+  TextStyle get height120 => copyWith(inherit: true, height: 1.2);
+
   TextStyle get height150 => copyWith(inherit: true, height: 1.5);
   TextStyle get height200 => copyWith(inherit: true, height: 2.0);
   TextStyle get height250 => copyWith(inherit: true, height: 2.5);

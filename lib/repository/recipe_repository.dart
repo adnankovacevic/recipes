@@ -25,7 +25,7 @@ List<Recipe> recommendedRecipes = [
     name: 'Spaghetti Carbonara',
     author: 'Tom Sawyer',
     images: [
-      'https://images.unsplash.com/photo-1560434019-4558f9a9e2a1?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+      'https://kitchenswagger.com/wp-content/uploads/2019/09/carbonara-2-final.jpg'
     ],
     rating: 4.5,
     duration: 25,
@@ -52,7 +52,7 @@ List<Recipe> recommendedRecipes = [
     name: 'Chicken Tikka Masala',
     author: 'Lucy Brown',
     images: [
-      'https://images.unsplash.com/photo-1560434019-4558f9a9e2a1?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+      'https://www.recipetineats.com/tachyon/2018/04/Chicken-Tikka-Masala_0-SQ.jpg'
     ],
     rating: 4.8,
     duration: 40,
@@ -83,7 +83,7 @@ List<Recipe> recommendedRecipes = [
     name: 'Chocolate Cake',
     author: 'Jeqlyn Smith',
     images: [
-      'https://images.unsplash.com/photo-1560434019-4558f9a9e2a1?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+      'https://sallysbakingaddiction.com/wp-content/uploads/2013/04/triple-chocolate-cake-4.jpg'
     ],
     rating: 5.0,
     duration: 60,
@@ -112,7 +112,7 @@ List<Recipe> recommendedRecipes = [
     name: 'Caesar Salad',
     author: 'Kelly Johnson',
     images: [
-      'https://images.unsplash.com/photo-1560434019-4558f9a9e2a1?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+      'https://s23209.pcdn.co/wp-content/uploads/2023/01/220905_DD_Chx-Caesar-Salad_051.jpg'
     ],
     rating: 4.7,
     duration: 15,

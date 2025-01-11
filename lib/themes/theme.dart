@@ -9,16 +9,21 @@ class AppTheme {
       Typography.material2021(platform: TargetPlatform.android)
           .black
           .copyWith(
-            headlineLarge: TextStyles.poppins.s40.w400,
-            headlineMedium: TextStyles.poppins.s32.w400,
-            headlineSmall: TextStyles.poppins.s24.w400,
+            displayLarge: TextStyles.poppins.s48.w400.height120,
+            displayMedium: TextStyles.poppins.s40.w400.height120,
+            displaySmall: TextStyles.poppins.s10.w400.height100,
+            headlineLarge: TextStyles.poppins.s40.w400.height120,
+            headlineMedium: TextStyles.poppins.s32.w400.height120,
+            headlineSmall: TextStyles.poppins.s24.w400.height120,
+            titleLarge: TextStyles.poppins.s28.w600.height150,
+            titleMedium: TextStyles.poppins.s24.w700.height150,
+            titleSmall: TextStyles.poppins.s16.w700.height150,
             bodyLarge: TextStyles.poppins.s20.height100,
             bodyMedium: TextStyles.poppins.s16.height100,
             bodySmall: TextStyles.poppins.s12.w400.height100,
-            titleLarge: TextStyles.poppins.s28.w600.height150,
-            titleSmall: TextStyles.poppins.s16.w700.height150,
-            titleMedium: TextStyles.poppins.s24.w700.height150,
-            displaySmall: TextStyles.poppins.s10.w400.height100,
+            labelLarge: TextStyles.poppins.s14.w600.height120,
+            labelMedium: TextStyles.poppins.s12.w500.height120,
+            labelSmall: TextStyles.poppins.s10.w400.height120,
           )
           .apply(
             displayColor: ColorPalettes.black,

@@ -9,12 +9,14 @@ class RecommendedRecipeCard extends StatelessWidget {
     required this.recipeName,
     required this.author,
     required this.onTap,
+    this.crossAxisAlignment = CrossAxisAlignment.start,
   });
 
   final String imageUrl;
   final String recipeName;
   final String author;
   final void Function()? onTap;
+  final CrossAxisAlignment crossAxisAlignment;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class RecommendedRecipeCard extends StatelessWidget {
       onTap: onTap,
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: crossAxisAlignment,
         spacing: 10,
         children: [
           ClipRRect(

@@ -53,7 +53,7 @@ class HomeView extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Categories', style: context.textTheme.titleSmall),
+                  Text('Categories', style: context.textTheme.bodyMedium?.w600),
                   TextButton(
                     onPressed: () {
                       debugPrint('See all categories');
@@ -70,6 +70,7 @@ class HomeView extends StatelessWidget {
               child: SizedBox(
                 height: 100,
                 child: ListView.builder(
+                  clipBehavior: Clip.none,
                   scrollDirection: Axis.horizontal,
                   itemCount: categories.length,
                   itemBuilder: (context, index) {
@@ -94,7 +95,8 @@ class HomeView extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Recommendation', style: context.textTheme.titleSmall),
+                  Text('Recommendation',
+                      style: context.textTheme.bodyMedium?.w600),
                   TextButton(
                     onPressed: () {
                       Navigator.of(context).push(
@@ -117,6 +119,7 @@ class HomeView extends StatelessWidget {
               child: SizedBox(
                 height: 240,
                 child: ListView.builder(
+                  clipBehavior: Clip.none,
                   scrollDirection: Axis.horizontal,
                   itemCount: recommendedRecipes.length,
                   itemBuilder: (context, index) {
