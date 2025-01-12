@@ -4,7 +4,7 @@ import 'package:recipes/views/bookmarks/bookmarks_view.dart';
 import 'package:recipes/views/home/home_view.dart';
 import 'package:recipes/views/account/account_view.dart';
 import 'package:recipes/views/search/search_view.dart';
-import 'package:recipes/widgets/notched_bottom_nav.dart';
+import 'package:recipes/widgets/notched_nav_bar.dart';
 
 final List<Widget> views = [
   HomeView(),

@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recipes/models/recipe.dart';
 import 'package:recipes/themes/color_palettes.dart';
+import 'package:recipes/themes/text_theme_extensions.dart';
 import 'package:recipes/views/recipe_details/info_row.dart';
 
 class RecipeDetailsView extends StatefulWidget {
@@ -110,17 +111,23 @@ class _RecipeDetailsViewState extends State<RecipeDetailsView> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   spacing: 16,
                   children: [
+                    Text(
+                      widget.recipe.name,
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
                     ListTile(
+                      leading: ClipRRect(
+                        borderRadius: BorderRadius.circular(30),
+                        child: CachedNetworkImage(
+                            imageUrl: 'https://i.pravatar.cc/150?img=52'),
+                      ),
                       title: Text(
-                        widget.recipe.name,
-                        style: Theme.of(context).textTheme.titleMedium,
+                        "By ${widget.recipe.author}",
+                        style: context.textTheme.bodyMedium,
                       ),
                       subtitle: Text(
-                        "By ${widget.recipe.author}",
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodySmall
-                            ?.copyWith(color: Colors.grey),
+                        "Berlin, Germany",
+                        style: context.textTheme.bodySmall?.transparent,
                       ),
                       trailing: Row(
                         mainAxisSize: MainAxisSize.min,
