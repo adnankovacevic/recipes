@@ -25,10 +25,14 @@ class HomeView extends StatelessWidget {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        title: Text("Home"),
+      ),
       body: CustomScrollView(
         slivers: [
           SliverPadding(
-            padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+            padding:
+                EdgeInsets.only(top: MediaQuery.of(context).padding.top + 80),
           ),
           SliverToBoxAdapter(
             child: Padding(

@@ -34,7 +34,7 @@ class CustomTabBar extends StatelessWidget {
           return GestureDetector(
             onTap: () => onTabSelected(index),
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               decoration: BoxDecoration(
                 color: isSelected ? activeBackgroundColor : Colors.grey[300],
                 borderRadius: BorderRadius.circular(20),
@@ -42,9 +42,9 @@ class CustomTabBar extends StatelessWidget {
               child: Text(
                 tabs[index],
                 style: isSelected
-                    ? context.textTheme.labelMedium
+                    ? context.textTheme.bodyMedium
                         ?.copyWith(color: activeTextColor)
-                    : context.textTheme.labelMedium
+                    : context.textTheme.bodyMedium
                         ?.copyWith(color: inactiveTextColor),
               ),
             ),
