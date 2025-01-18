@@ -3,9 +3,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:recipes/models/recipe.dart';
 import 'package:recipes/themes/color_palettes.dart';
-import 'package:recipes/themes/text_theme_extensions.dart';
 import 'package:recipes/views/recipe_details/info_row.dart';
 
 class RecipeDetailsView extends StatefulWidget {
@@ -29,7 +29,8 @@ class _RecipeDetailsViewState extends State<RecipeDetailsView> {
             leading: IconButton.filled(
               color: Colors.white,
               onPressed: () {
-                Navigator.of(context).pop();
+                context.pop();
+                // context.go(Routes.root);
               },
               icon: Icon(Icons.arrow_back),
             ),
@@ -115,35 +116,35 @@ class _RecipeDetailsViewState extends State<RecipeDetailsView> {
                       widget.recipe.name,
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
-                    ListTile(
-                      leading: ClipRRect(
-                        borderRadius: BorderRadius.circular(30),
-                        child: CachedNetworkImage(
-                            imageUrl: 'https://i.pravatar.cc/150?img=52'),
-                      ),
-                      title: Text(
-                        "By ${widget.recipe.author}",
-                        style: context.textTheme.bodyMedium,
-                      ),
-                      subtitle: Text(
-                        "Berlin, Germany",
-                        style: context.textTheme.bodySmall?.transparent,
-                      ),
-                      trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const Icon(
-                            CupertinoIcons.star_fill,
-                            color: Colors.amber,
-                          ),
-                          const SizedBox(width: 4),
-                          Text(
-                            widget.recipe.rating.toString(),
-                            style: Theme.of(context).textTheme.bodySmall,
-                          ),
-                        ],
-                      ),
-                    ),
+                    // ListTile(
+                    //   leading: ClipRRect(
+                    //     borderRadius: BorderRadius.circular(30),
+                    //     child: CachedNetworkImage(
+                    //         imageUrl: 'https://i.pravatar.cc/150?img=52'),
+                    //   ),
+                    //   title: Text(
+                    //     "By ${widget.recipe.author}",
+                    //     style: context.textTheme.bodyMedium,
+                    //   ),
+                    //   subtitle: Text(
+                    //     "Berlin, Germany",
+                    //     style: context.textTheme.bodySmall?.transparent,
+                    //   ),
+                    //   trailing: Row(
+                    //     mainAxisSize: MainAxisSize.min,
+                    //     children: [
+                    //       const Icon(
+                    //         CupertinoIcons.star_fill,
+                    //         color: Colors.amber,
+                    //       ),
+                    //       const SizedBox(width: 4),
+                    //       Text(
+                    //         widget.recipe.rating.toString(),
+                    //         style: Theme.of(context).textTheme.bodySmall,
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -165,17 +166,17 @@ class _RecipeDetailsViewState extends State<RecipeDetailsView> {
                       "Ingredients",
                       style: Theme.of(context).textTheme.titleSmall,
                     ),
-                    for (var ingredient in widget.recipe.ingredients)
-                      ListTile(
-                        title: Text(
-                          ingredient.name,
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
-                        trailing: Text(
-                          "${ingredient.quantity} ${ingredient.unit.abbreviation}",
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
-                      ),
+                    // for (var ingredient in widget.recipe.ingredients)
+                    //   ListTile(
+                    //     title: Text(
+                    //       ingredient.name,
+                    //       style: Theme.of(context).textTheme.bodySmall,
+                    //     ),
+                    //     trailing: Text(
+                    //       "${ingredient.quantity} ${ingredient.unit.abbreviation}",
+                    //       style: Theme.of(context).textTheme.bodySmall,
+                    //     ),
+                    //   ),
                   ],
                 ),
               ),

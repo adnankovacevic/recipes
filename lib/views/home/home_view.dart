@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:recipes/repository/mock_recipe_repository.dart';
+import 'package:recipes/routes.dart';
 import 'package:recipes/themes/text_theme_extensions.dart';
 import 'package:recipes/views/home/recommended_recipe_card.dart';
-import 'package:recipes/views/recipe_details/recipe_details_view.dart';
 import 'package:recipes/widgets/custom_tab_bar.dart';
 import 'package:recipes/widgets/see_all_list.dart';
 
@@ -119,12 +120,14 @@ class HomeView extends StatelessWidget {
                       imageUrl:
                           MockRecipeRepository.recipes[index].images.first,
                       onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => RecipeDetailsView(
-                                recipe: MockRecipeRepository.recipes[index]),
-                          ),
-                        );
+                        // Navigator.of(context).push(
+                        // MaterialPageRoute(
+                        //   builder: (context) => RecipeDetailsView(
+                        //       recipe: MockRecipeRepository.recipes[index]),
+                        // ),
+
+                        context.goNamed(Routes.recipe,
+                            extra: MockRecipeRepository.recipes[index]);
                       },
                     ),
                   );

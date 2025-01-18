@@ -1,23 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:recipes/views/notifications/notifications_view.dart';
-import 'package:recipes/views/home/home_view.dart';
-import 'package:recipes/views/account/account_view.dart';
+import 'package:go_router/go_router.dart';
 import 'package:recipes/views/root/state/bottom_nav_cubit.dart';
-import 'package:recipes/views/search/search_view.dart';
 import 'package:recipes/widgets/notched_nav_bar.dart';
 
-final List<Widget> views = [
-  HomeView(),
-  SearchView(),
-  // AddRecipeView(),
-  NotificationsView(),
-  AccountView(),
-];
-
 class RootView extends StatelessWidget {
-  const RootView({super.key});
+  const RootView({super.key, required this.statefulNavigationShell});
+  final StatefulNavigationShell statefulNavigationShell;
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +15,10 @@ class RootView extends StatelessWidget {
       create: (context) => BottomNavCubit(),
       child: BlocBuilder<BottomNavCubit, int>(
         builder: (context, currentIndex) {
-          final cubit = context.read<BottomNavCubit>();
+          // final cubit = context.read<BottomNavCubit>();
           return Scaffold(
+            body: statefulNavigationShell,
             extendBody: true,
-            body: views[currentIndex],
             bottomNavigationBar: NotchedBottomNavBar(
               iconPaths: [
                 CupertinoIcons.home,
@@ -36,8 +26,8 @@ class RootView extends StatelessWidget {
                 CupertinoIcons.bell,
                 CupertinoIcons.person,
               ],
-              currentIndex: currentIndex,
-              onIndexChange: cubit.changeIndex,
+              currentIndex: statefulNavigationShell.currentIndex,
+              onIndexChange: statefulNavigationShell.goBranch,
             ),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerDocked,

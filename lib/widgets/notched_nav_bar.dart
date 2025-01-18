@@ -16,7 +16,7 @@ class NotchedBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      padding: const EdgeInsets.only(top: 30),
+      // padding: const EdgeInsets.only(top: 30),
       elevation: 0,
       height: 66,
       surfaceTintColor: Colors.transparent,
