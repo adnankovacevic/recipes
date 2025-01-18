@@ -1,4 +1,4 @@
-import 'package:recipes/models/recipe.dart';
+import 'package:recipes/features/recipe/models/recipe.dart';
 
 class Category {
   const Category({

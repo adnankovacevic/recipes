@@ -1,4 +1,4 @@
-import 'package:recipes/models/ingridient.dart';
+import 'package:recipes/features/recipe/models/ingridient.dart';
 
 class Recipe {
   const Recipe({

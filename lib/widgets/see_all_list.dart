@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recipes/models/recipe.dart';
-import 'package:recipes/views/home/recommended_recipe_card.dart';
-import 'package:recipes/views/recipe_details/recipe_details_view.dart';
+import 'package:recipes/features/recipe/models/recipe.dart';
+import 'package:recipes/features/home/recommended_recipe_card.dart';
+import 'package:recipes/features/recipe/recipe_view.dart';
 
 class SeeAllListView extends StatelessWidget {
   const SeeAllListView({super.key, required this.recipes});

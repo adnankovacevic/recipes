@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:recipes/repository/mock_recipe_repository.dart';
+import 'package:recipes/features/recipe/repositories/mock_recipe_repository.dart';
 import 'package:recipes/routes.dart';
 import 'package:recipes/themes/text_theme_extensions.dart';
-import 'package:recipes/views/home/recommended_recipe_card.dart';
+import 'package:recipes/features/home/recommended_recipe_card.dart';
 import 'package:recipes/widgets/custom_tab_bar.dart';
 import 'package:recipes/widgets/see_all_list.dart';
 

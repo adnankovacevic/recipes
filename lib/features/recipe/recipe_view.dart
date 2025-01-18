@@ -4,9 +4,9 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:recipes/models/recipe.dart';
+import 'package:recipes/features/recipe/models/recipe.dart';
 import 'package:recipes/themes/color_palettes.dart';
-import 'package:recipes/views/recipe_details/info_row.dart';
+import 'package:recipes/features/recipe/widgets/info_row.dart';
 
 class RecipeDetailsView extends StatefulWidget {
   const RecipeDetailsView({super.key, required this.recipe});

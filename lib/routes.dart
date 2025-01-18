@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
-import 'package:recipes/models/recipe.dart';
-import 'package:recipes/views/account/account_view.dart';
-import 'package:recipes/views/home/home_view.dart';
-import 'package:recipes/views/notifications/notifications_view.dart';
-import 'package:recipes/views/recipe_details/recipe_details_view.dart';
-import 'package:recipes/views/root/root_view.dart';
-import 'package:recipes/views/search/search_view.dart';
+import 'package:recipes/features/recipe/models/recipe.dart';
+import 'package:recipes/features/account/account_view.dart';
+import 'package:recipes/features/home/home_view.dart';
+import 'package:recipes/features/notifications/notifications_view.dart';
+import 'package:recipes/features/recipe/recipe_view.dart';
+import 'package:recipes/features/root/root_view.dart';
+import 'package:recipes/features/search/search_view.dart';
 
 class Routes {
   static const String root = '/root';

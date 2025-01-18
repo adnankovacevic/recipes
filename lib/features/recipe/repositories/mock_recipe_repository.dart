@@ -1,8 +1,17 @@
 import 'package:recipes/enums/unit_type.dart';
-import 'package:recipes/models/ingridient.dart';
-import 'package:recipes/models/recipe.dart';
+import 'package:recipes/features/recipe/models/ingridient.dart';
+import 'package:recipes/features/recipe/models/recipe.dart';
 
-class MockRecipeRepository {
+abstract class RecipeRepository {
+  Future<List<Recipe>> getAllRecipes();
+  Future<void> addRecipe(Recipe recipe);
+  Future<void> updateRecipe(Recipe recipe);
+  Future<void> deleteRecipe(String id);
+  Future<Recipe> getRecipeById(String id);
+  Future<List<Recipe>> searchRecipes(String query);
+}
+
+class MockRecipeRepository extends RecipeRepository {
   static List<Recipe> get recipes {
     return <Recipe>[
       Recipe(
@@ -134,16 +143,50 @@ class MockRecipeRepository {
     ];
   }
 
+  @override
   Future<List<Recipe>> getAllRecipes() async {
     await Future.delayed(const Duration(seconds: 1));
     return recipes;
   }
 
+  @override
   Future<Recipe> getRecipeById(String id) async {
     await Future.delayed(const Duration(milliseconds: 500));
     final recipe = recipes.firstWhere((recipe) => recipe.id == id, orElse: () {
       throw Exception('Recipe with ID $id not found.');
     });
     return recipe;
+  }
+
+  @override
+  Future<void> addRecipe(Recipe recipe) async {
+    await Future.delayed(const Duration(milliseconds: 500));
+    recipes.add(recipe);
+  }
+
+  @override
+  Future<void> updateRecipe(Recipe recipe) async {
+    await Future.delayed(const Duration(milliseconds: 500));
+    final index = recipes.indexWhere((r) => r.id == recipe.id);
+    if (index != -1) {
+      recipes[index] = recipe;
+    } else {
+      throw Exception('Recipe with ID ${recipe.id} not found.');
+    }
+  }
+
+  @override
+  Future<void> deleteRecipe(String id) async {
+    await Future.delayed(const Duration(milliseconds: 500));
+    recipes.removeWhere((recipe) => recipe.id == id);
+  }
+
+  @override
+  Future<List<Recipe>> searchRecipes(String query) async {
+    await Future.delayed(const Duration(milliseconds: 500));
+    return recipes
+        .where(
+            (recipe) => recipe.name.toLowerCase().contains(query.toLowerCase()))
+        .toList();
   }
 }

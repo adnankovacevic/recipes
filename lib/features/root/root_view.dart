@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:recipes/views/root/state/bottom_nav_cubit.dart';
+import 'package:recipes/features/root/state/bottom_nav_cubit.dart';
 import 'package:recipes/widgets/notched_nav_bar.dart';
 
 class RootView extends StatelessWidget {

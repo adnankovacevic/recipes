@@ -1,10 +1,13 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:recipes/models/recipe.dart';
+import 'package:recipes/di.dart';
+import 'package:recipes/features/recipe/models/recipe.dart';
+import 'package:recipes/features/recipe/services/recipe_service.dart';
 
 class RecipeCubit extends Cubit<List<Recipe>> {
   RecipeCubit() : super([]);
 
-  void loadRecipes(List<Recipe> recipes) {
+  void loadRecipes(List<Recipe> recipes) async {
+    final recipes = await di.get<RecipeService>().getAllRecipes();
     emit(recipes);
   }
 
@@ -16,9 +19,9 @@ class RecipeCubit extends Cubit<List<Recipe>> {
     emit(recipes);
   }
 
-  void addRecipe(Recipe recipe) {
-    state.add(recipe);
-    emit(state);
+  void addRecipe(Recipe recipe) async {
+    await di.get<RecipeService>().addRecipe(recipe);
+    emit([...state, recipe]);
   }
 
   void updateRecipe(Recipe recipe) {
