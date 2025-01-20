@@ -16,7 +16,6 @@ class NotchedBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      // padding: const EdgeInsets.only(top: 30),
       elevation: 0,
       height: 66,
       surfaceTintColor: Colors.transparent,
@@ -33,11 +32,15 @@ class NotchedBottomNavBar extends StatelessWidget {
               (index) => Expanded(
                 child: GestureDetector(
                   onTap: () => onIndexChange(index),
-                  child: Icon(
-                    iconPaths[index],
-                    color: currentIndex == index
-                        ? ColorPalettes.primary
-                        : ColorPalettes.black,
+                  behavior: HitTestBehavior.opaque,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Icon(
+                      iconPaths[index],
+                      color: currentIndex == index
+                          ? ColorPalettes.primary
+                          : ColorPalettes.black,
+                    ),
                   ),
                 ),
               ),
