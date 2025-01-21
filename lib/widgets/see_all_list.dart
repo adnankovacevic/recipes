@@ -40,7 +40,7 @@ class SeeAllListView extends StatelessWidget {
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => RecipeDetailsView(
+                          builder: (context) => RecipeView(
                             recipe: recipes[index],
                           ),
                         ),

@@ -48,7 +48,7 @@ class Routes {
                     name: recipe,
                     builder: (context, state) {
                       final recipe = state.extra as Recipe;
-                      return RecipeDetailsView(recipe: recipe);
+                      return RecipeView(recipe: recipe);
                     },
                   ),
                 ],

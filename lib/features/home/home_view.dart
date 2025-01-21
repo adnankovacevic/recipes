@@ -30,7 +30,7 @@ class HomeView extends StatelessWidget {
 
     return BlocProvider(
       create: (context) {
-        final cubit = di.get<RecipeCubit>();
+        final cubit = locator.get<RecipeCubit>();
         cubit.loadRecipes();
         return cubit;
       },

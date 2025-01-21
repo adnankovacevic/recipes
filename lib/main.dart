@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           lazy: false,
-          create: (context) => di<RecipeCubit>(),
+          create: (context) => locator<RecipeCubit>(),
         ),
       ],
       child: MaterialApp.router(

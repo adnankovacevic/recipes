@@ -6,7 +6,7 @@ import 'package:recipes/features/auth/repositories/auth_repository.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthLoading());
 
-  AuthRepository get authRepository => di.get<AuthRepository>();
+  AuthRepository get authRepository => locator.get<AuthRepository>();
 
   Future<void> login(String email, String password) async {
     emit(AuthLoading());

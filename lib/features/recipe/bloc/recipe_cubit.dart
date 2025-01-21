@@ -9,7 +9,7 @@ class RecipeCubit extends Cubit<RecipeState> {
   RecipeCubit() : super(RecipeLoading());
 
   MockRecipeRepository get mockRecipeRepository =>
-      di.get<MockRecipeRepository>();
+      locator.get<MockRecipeRepository>();
   Future<void> loadRecipes() async {
     emit(RecipeLoading());
     try {
